@@ -1,5 +1,4 @@
 import mysql.connector
-from colorama import init , Fore
 import mysql.connector.cursor
 from os import system
 system("cls")
@@ -27,7 +26,7 @@ class Database:
           self.kursor.execute("CREATE DATABASE IF NOT EXISTS KITCHEN;")
           self.kursor.execute("USE KITCHEN;")
 
-          print(Fore.GREEN + "$ DATABSE YARATILINDI ")
+          print( "$ DATABSE YARATILINDI ")
      
      def __Create_Table(self):
           self.kursor.execute("""CREATE TABLE IF NOT EXISTS DISHES (
@@ -36,7 +35,7 @@ class Database:
           INGREDIENTS VARCHAR(128) ,
           INSTRUCTIONS VARCHAR(128));""")
           
-          print(Fore.GREEN + "$ TABLE YARATILINDI ")
+          print( "$ TABLE YARATILINDI ")
      
 
      def Insert(self , name , ingredients , instructions):
@@ -48,7 +47,7 @@ class Database:
           
           self.dbase.commit()
 
-          print(Fore.GREEN + "$ MA'LUMOT MUOFAQQIYATLI QO'SHILDI ")
+          print( "$ MA'LUMOT MUOFAQQIYATLI QO'SHILDI ")
 
 
      
@@ -62,12 +61,9 @@ class Database:
           self.kursor.execute("DELETE FROM DISHES WHERE NAME = %s;",(name))
 
           self.dbase.commit()
-          print(Fore.RED + "% MA'LUMOT O'CHIRILDI ")
+          print( "% MA'LUMOT O'CHIRILDI ")
      
-     def Edit(self , name , new_name , ing , inc):
-          self.kursor.execute("UPDATE DISHES SET NAME = %s , INGREDIENTS = %s , INSTRUCTIONS = %s   WHERE NAME = %s;"(new_name , ing , inc , name))
-          self.dbase.commit()
-          print(Fore.GREEN + "$ MALUMOT O'ZGARIRILDI ")
+     
           
 
 
